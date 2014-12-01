@@ -30,7 +30,6 @@ class BShipMainMenu extends JFrame implements ActionListener {
   BShipMainMenu() {
 	  
 	  
-    // Set suitable title for the frame.
     super("Battleship Main Menu");
     this.setPreferredSize(new Dimension(1050, 675));
     statsPane = new StatsPanel();
