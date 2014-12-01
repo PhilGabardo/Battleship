@@ -19,14 +19,12 @@ public class StatsIO {
 		currentStats.add(wins.toString());
 		currentStats.add(name);
 		currentStats.add(losses.toString());
-		}
+	}
 	
 	public void readStats(){
-		
 		storedNames.clear();
 		storedLosses.clear();
 		storedWins.clear();
-		
 		BufferedReader br = null;
 		String readLine;
 		try {
@@ -67,8 +65,6 @@ public class StatsIO {
 				
 		if (playerExists(name)){
 			
-
-
 			//update the players score
 			int playerIndex = getPlayerIndex(name);
 			
@@ -88,36 +84,23 @@ public class StatsIO {
 			
 
 		}else{
-			//just write the users data to a new file
-			
+			//just write the users data to a new file=
 			//append the current stats of the player to the end of the stored stats arrays and write it to file
 			storedNames.add(currentStats.get(1));
 			storedWins.add(Integer.parseInt(currentStats.get(0)));
 			storedLosses.add(Integer.parseInt(currentStats.get(2)));
-			
-				
 				try{
-					
-						FileWriter fstream = new FileWriter("stats.txt");
-						BufferedWriter out = new BufferedWriter(fstream);
-						for (int i = 0; i < storedNames.size(); i++){
-
-							out.append(storedWins.get(i) + "|" + storedNames.get(i) + "|" + storedLosses.get(i));
-							out.newLine();
-							
-						}
-						out.close();
-					}catch (Exception e){
-						
-						System.out.println("Error writing stats to file");
-						
+					FileWriter fstream = new FileWriter("stats.txt");
+					BufferedWriter out = new BufferedWriter(fstream);
+					for (int i = 0; i < storedNames.size(); i++){
+						out.append(storedWins.get(i) + "|" + storedNames.get(i) + "|" + storedLosses.get(i));
+						out.newLine();
 					}
-				
+					out.close();
+				}catch (Exception e){
+					System.out.println("Error writing stats to file");
 			}
-			
-			
-		
-		
+		}
 	}
 	
 	//returns player index given the name using a linear search
