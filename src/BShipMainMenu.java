@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import java.awt.Font;
 
 
-class BShipMainMenu extends JFrame implements ActionListener {    // (1)
+class BShipMainMenu extends JFrame implements ActionListener {   
 
   // Components
   private JBackgroundPanel mainMenu;
@@ -36,8 +36,6 @@ class BShipMainMenu extends JFrame implements ActionListener {    // (1)
     statsPane = new StatsPanel();
     
     // Create GUI components.
-    
-    
     mainMenu = new JBackgroundPanel();
     newGameButton = new JButton("New Game");
     newGameButton.setFont(new Font("ISOCTEUR", Font.BOLD, 18));
@@ -62,7 +60,6 @@ class BShipMainMenu extends JFrame implements ActionListener {    // (1)
     mainMenu.setVisible(true);
     
     //Create Game Sound
-    
     bgMusic = new GameSound();
     bgMusic.music(true);
     
@@ -71,7 +68,6 @@ class BShipMainMenu extends JFrame implements ActionListener {    // (1)
     
    
     // Construct the component hierarchy.
-    
     mainMenu.add(newGameButton);
     mainMenu.add(statsButton);
     mainMenu.add(rulesButton);
@@ -106,31 +102,33 @@ class BShipMainMenu extends JFrame implements ActionListener {    // (1)
   
 
   public void actionPerformed(ActionEvent event) {  
+  	
     if (event.getSource() == newGameButton) {
-    inputNamePanel = new InputNamePanel();
-    fleetPanel = new FleetPanel();
-    gamePanel = new GamePanel();  
-    resultsPanel = new ResultsPanel();
-    pausePanel = new PausePanel();
-    theGame.add(inputNamePanel);
-    theGame.add(fleetPanel);
-    theGame.add(gamePanel);
-    theGame.add(pausePanel);
-    theGame.add(resultsPanel);
-    cardLayout.addLayoutComponent(inputNamePanel, "inputNamePanel");  
-    cardLayout.addLayoutComponent(fleetPanel, "fleetPanel");
-    cardLayout.addLayoutComponent(gamePanel, "gamePanel");
-    cardLayout.addLayoutComponent(pausePanel, "pausePanel");
-    cardLayout.addLayoutComponent(resultsPanel, "resultsPanel");
-    cardLayout.show(BShipMainMenu.theGame, "inputNamePanel");
+    	    //Initiate game panels
+	    inputNamePanel = new InputNamePanel();
+	    fleetPanel = new FleetPanel();
+	    gamePanel = new GamePanel();  
+	    resultsPanel = new ResultsPanel();
+	    pausePanel = new PausePanel();
+	    theGame.add(inputNamePanel);
+	    theGame.add(fleetPanel);
+	    theGame.add(gamePanel);
+	    theGame.add(pausePanel);
+	    theGame.add(resultsPanel);
+	    cardLayout.addLayoutComponent(inputNamePanel, "inputNamePanel");  
+	    cardLayout.addLayoutComponent(fleetPanel, "fleetPanel");
+	    cardLayout.addLayoutComponent(gamePanel, "gamePanel");
+	    cardLayout.addLayoutComponent(pausePanel, "pausePanel");
+	    cardLayout.addLayoutComponent(resultsPanel, "resultsPanel");
+	    cardLayout.show(BShipMainMenu.theGame, "inputNamePanel");
     
     } else if (event.getSource() == statsButton) {
-      theGame.add(statsPane);
-      cardLayout.addLayoutComponent(statsPane, "Stats Panel");
-      cardLayout.show(BShipMainMenu.theGame, "Stats Panel");
+	      theGame.add(statsPane);
+	      cardLayout.addLayoutComponent(statsPane, "Stats Panel");
+	      cardLayout.show(BShipMainMenu.theGame, "Stats Panel");
       
     } else if (event.getSource() == rulesButton) {
-      cardLayout.show(BShipMainMenu.theGame, "rulesPanel");
+      	cardLayout.show(BShipMainMenu.theGame, "rulesPanel");
       
     }else { 
       dispose();
