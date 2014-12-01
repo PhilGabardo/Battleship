@@ -205,6 +205,7 @@ public class StatsPanel extends JPanel {
 		
 	}
 	
+	//Sort stats structure
 	private static void bubbleSort(ArrayList<Integer> a, int n){
 		int i, j, t, t3 = 0;
 		String t2;
@@ -230,7 +231,11 @@ public class StatsPanel extends JPanel {
 		
 	}
 	
+	
+	//Set stats structure
 	private static void statsFiller(){
+		
+		//No stats (add 0s)
 		if (stats.storedNames.size() == 0){
 			
 			stats.storedNames.add("No Player");
@@ -245,7 +250,9 @@ public class StatsPanel extends JPanel {
 			stats.storedWins.add(0);
 			stats.storedWins.add(0);
 			
-		}else if (stats.storedNames.size() == 1){
+		}
+		//1 player (add two "No Player" stats)
+		else if (stats.storedNames.size() == 1){
 			stats.storedNames.add("No Player");
 			stats.storedNames.add("No Player");
 			
