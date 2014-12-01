@@ -1,18 +1,14 @@
-import javax.sound.sampled.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
 
-
-//Launch the application
+//Start the application
 public class BshipMainMenuClient {
     
-   
+	static BShipMainMenu gui;
     
     public static void main(String[] args) throws Exception {
         
-       BShipMainMenu app = new BShipMainMenu();
+        gui = new BShipMainMenu();
     }
     
 }
+
 
