@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import javax.swing.SwingConstants;
 
-
+//Panel to show results
 public class ResultsPanel extends JPanel implements ActionListener{
   
   static String winner, loser;
@@ -41,13 +41,12 @@ public class ResultsPanel extends JPanel implements ActionListener{
     mainMenuButton.setForeground(Color.RED);
     mainMenuButton.setBackground(Color.LIGHT_GRAY);
     
-    // Construct component hierarchy
+    // add GUI components
     this.add(title);
     this.add(winnerLabel);
     this.add(loserLabel);
     this.add(mainMenuButton);
 
-    // Identify and register listener with source
     mainMenuButton.addActionListener(this);
   }
   
@@ -61,6 +60,7 @@ public class ResultsPanel extends JPanel implements ActionListener{
       loserLabel.setText("Loser: " + loser);
   }
   
+  //Update stats 
   public void addStats(String winner){
     int win, loss;
     if(winner.equals("Computer")){
