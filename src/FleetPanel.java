@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Font;
 
-
+//Panel for placing your fleet of ships
 class FleetPanel extends JPanel implements ActionListener {
 
   private static JLabel msg;
@@ -26,14 +26,22 @@ class FleetPanel extends JPanel implements ActionListener {
 
       super();
       setBackground(Color.DARK_GRAY);
+      
+      //PlayerMap is object used to store fleet location data
       PlayerMap.resetMap();
+      
+      //First place a ship of length 5
       shipLength = 5;
+      
+      //Default orientation is horizontal
       orientation = "horizontal";
       
-      // Create GUI components
+      //Direct user
       msg = new JLabel("Select orientation, then place ship of length 5: ");
       msg.setForeground(Color.GREEN);
       msg.setFont(new Font("ISOCTEUR", Font.BOLD, 23));
+      
+      //Buttons used to place and view fleet
       shipButtons = new JButton[10][10];
       for(int i = 0; i<10; i++)
       {
@@ -46,14 +54,19 @@ class FleetPanel extends JPanel implements ActionListener {
           }
       }
       
+      //Set horizontal ship orientation
       horizButton = new JCheckBox("Horizontal", true);
       horizButton.setForeground(Color.GREEN);
       horizButton.setFont(new Font("ISOCTEUR", Font.PLAIN, 18));
       horizButton.setBackground(Color.DARK_GRAY);
+      
+      //Set vertical ship orientation
       vertButton = new JCheckBox("Vertical", false);
       vertButton.setForeground(Color.GREEN);
       vertButton.setFont(new Font("ISOCTEUR", Font.PLAIN, 18));
       vertButton.setBackground(Color.DARK_GRAY);
+      
+    
       ButtonGroup group = new ButtonGroup(); // used to ensure only one of horizButton or vertButton can be checked at one time
       group.add(horizButton);
       group.add(vertButton);
@@ -126,6 +139,8 @@ class FleetPanel extends JPanel implements ActionListener {
               GamePanel.colourPlayerMap();
             }
           }
+          
+          //Invalid placement (part of ship not on map)
           catch (ArrayIndexOutOfBoundsException e){
             msg.setText("ERROR: Ship starting in row " + (row+1) + " column " + (column+1) + " of length" + shipLength + 
             " is too big. Click another starting position");
@@ -141,5 +156,4 @@ class FleetPanel extends JPanel implements ActionListener {
         }
       }
     }
-    
   }
